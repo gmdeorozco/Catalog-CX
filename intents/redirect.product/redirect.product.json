@@ -1,0 +1,16 @@
+{
+  "name": "a47ecc84-bb6c-4777-9123-c7af6ed58878",
+  "displayName": "redirect.product",
+  "parameters": [ {
+    "id": "merch",
+    "entityType": "@Merch"
+  }, {
+    "id": "shirtsize",
+    "entityType": "@ShirtSize"
+  }, {
+    "id": "artist",
+    "entityType": "@Artist"
+  } ],
+  "priority": 500000,
+  "numTrainingPhrases": 8
+}

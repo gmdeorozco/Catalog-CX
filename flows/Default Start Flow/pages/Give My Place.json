@@ -1,0 +1,39 @@
+{
+  "name": "3867f9bb-8fd8-4465-ba32-360e85724bbe",
+  "displayName": "Give My Place",
+  "form": {
+    "parameters": [ {
+      "displayName": "my_place",
+      "required": true,
+      "entityType": "@place",
+      "fillBehavior": {
+        "initialPromptFulfillment": {
+          "messages": [ {
+            "text": {
+              "text": [ "Please provide your place" ]
+            },
+            "languageCode": "en"
+          } ],
+          "nextActionOverride": {
+          
+          }
+        }
+      }
+    } ]
+  },
+  "transitionRoutes": [ {
+    "condition": "$session.params.my_place != null",
+    "triggerFulfillment": {
+      "messages": [ {
+        "text": {
+          "text": [ "Your place is $session.params.my_place.city" ]
+        },
+        "languageCode": "en"
+      } ],
+      "nextActionOverride": {
+      
+      }
+    },
+    "name": "182abb0a-eba9-4342-a34f-64ca91253cdb"
+  } ]
+}

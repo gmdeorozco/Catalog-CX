@@ -1,0 +1,19 @@
+{
+  "entities": [ {
+    "value": "@sys.geo-city:city",
+    "synonyms": [ "@sys.geo-city:city" ],
+    "languageCode": "en"
+  }, {
+    "value": " @sys.geo-state:state",
+    "synonyms": [ " @sys.geo-state:state" ],
+    "languageCode": "en"
+  }, {
+    "value": "@sys.geo-city:city @sys.geo-state:state",
+    "synonyms": [ "@sys.geo-city:city @sys.geo-state:state" ],
+    "languageCode": "en"
+  }, {
+    "value": "@sys.geo-city:city, @sys.geo-state:state",
+    "synonyms": [ "@sys.geo-city:city, @sys.geo-state:state" ],
+    "languageCode": "en"
+  } ]
+}

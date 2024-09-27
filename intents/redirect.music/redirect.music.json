@@ -1,0 +1,10 @@
+{
+  "name": "9a53c2a0-a976-4c08-9717-04e797373553",
+  "displayName": "redirect.music",
+  "parameters": [ {
+    "id": "artist",
+    "entityType": "@Artist"
+  } ],
+  "priority": 500000,
+  "numTrainingPhrases": 7
+}

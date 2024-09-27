@@ -1,0 +1,338 @@
+{
+  "name": "c43bbf52-0fc9-4d61-91a9-606b60901f2c",
+  "displayName": "buy1",
+  "notes": "Buy t-shirt for the goo fighter.",
+  "testCaseConversationTurns": [ {
+    "userInput": {
+      "isWebhookEnabled": true,
+      "input": {
+        "text": {
+          "text": "HI"
+        },
+        "languageCode": "en"
+      }
+    },
+    "virtualAgentOutput": {
+      "triggeredIntent": {
+        "name": "Default Welcome Intent"
+      },
+      "currentPage": {
+        "name": "Start Page",
+        "flow": "Default Start Flow"
+      },
+      "textResponses": [ {
+        "text": [ "Welcome, I am the virtual agent of G-Records, a fictional rock label. You can order artists merchandise, ask questions about your order or shipping, and I can tell you more which artists are currently signed with us. How can I help?" ]
+      } ],
+      "currentFlow": {
+        "name": "Default Start Flow"
+      },
+      "actions": [ {
+        "userUtterance": {
+          "text": "HI"
+        }
+      }, {
+        "agentUtterance": {
+          "text": "Welcome, I am the virtual agent of G-Records, a fictional rock label. You can order artists merchandise, ask questions about your order or shipping, and I can tell you more which artists are currently signed with us. How can I help?"
+        }
+      } ]
+    }
+  }, {
+    "userInput": {
+      "isWebhookEnabled": true,
+      "input": {
+        "text": {
+          "text": "I want a shirt"
+        },
+        "languageCode": "en"
+      }
+    },
+    "virtualAgentOutput": {
+      "triggeredIntent": {
+        "name": "redirect.shirts"
+      },
+      "currentPage": {
+        "name": "Shirts",
+        "flow": "Catalog"
+      },
+      "textResponses": [ {
+        "text": [ "Do you want a longsleeve or a t-shirt?" ]
+      } ],
+      "currentFlow": {
+        "name": "Catalog"
+      },
+      "actions": [ {
+        "userUtterance": {
+          "text": "I want a shirt"
+        }
+      }, {
+        "agentUtterance": {
+          "text": "Do you want a longsleeve or a t-shirt?"
+        }
+      } ]
+    }
+  }, {
+    "userInput": {
+      "isWebhookEnabled": true,
+      "input": {
+        "text": {
+          "text": "t-shirt"
+        },
+        "languageCode": "en"
+      }
+    },
+    "virtualAgentOutput": {
+      "sessionParameters": {
+        "merch": "T-shirt"
+      },
+      "currentPage": {
+        "name": "Shirt Size",
+        "flow": "Catalog"
+      },
+      "textResponses": [ {
+        "text": [ "What shirt size do you want?" ]
+      } ],
+      "currentFlow": {
+        "name": "Catalog"
+      },
+      "actions": [ {
+        "userUtterance": {
+          "text": "t-shirt"
+        }
+      }, {
+        "agentUtterance": {
+          "text": "What shirt size do you want?"
+        }
+      } ]
+    },
+    "expectations": {
+      "expectedSessionParameters": [ {
+        "key": "merch",
+        "value": "T-shirt"
+      } ]
+    }
+  }, {
+    "userInput": {
+      "isWebhookEnabled": true,
+      "input": {
+        "text": {
+          "text": "S"
+        },
+        "languageCode": "en"
+      }
+    },
+    "virtualAgentOutput": {
+      "sessionParameters": {
+        "merch": "T-shirt",
+        "shirtsize": "S"
+      },
+      "currentPage": {
+        "name": "Product",
+        "flow": "Catalog"
+      },
+      "textResponses": [ {
+        "text": [ "You didn't mention which artist you are interested in. You can ask me to buy the T-shirt of the artist you like or ask which artists we signed. How can I help?" ]
+      } ],
+      "currentFlow": {
+        "name": "Catalog"
+      },
+      "actions": [ {
+        "userUtterance": {
+          "text": "S"
+        }
+      }, {
+        "agentUtterance": {
+          "text": "You didn't mention which artist you are interested in. You can ask me to buy the T-shirt of the artist you like or ask which artists we signed. How can I help?"
+        }
+      } ]
+    },
+    "expectations": {
+      "expectedSessionParameters": [ {
+        "key": "merch",
+        "value": "T-shirt"
+      }, {
+        "key": "shirtsize",
+        "value": "S"
+      } ]
+    }
+  }, {
+    "userInput": {
+      "isWebhookEnabled": true,
+      "input": {
+        "text": {
+          "text": "Goo fighters"
+        },
+        "languageCode": "en"
+      }
+    },
+    "virtualAgentOutput": {
+      "sessionParameters": {
+        "artist": "The Goo Fighters",
+        "merch": "T-shirt",
+        "price": 15,
+        "shirtsize": "S"
+      },
+      "currentPage": {
+        "name": "Confirmation",
+        "flow": "Catalog"
+      },
+      "textResponses": [ {
+        "text": [ "A T-shirt of The Goo Fighters size: S costs $15. Shall I continue to order?" ]
+      } ],
+      "currentFlow": {
+        "name": "Catalog"
+      },
+      "actions": [ {
+        "userUtterance": {
+          "text": "Goo fighters"
+        }
+      }, {
+        "agentUtterance": {
+          "text": "A T-shirt of The Goo Fighters size: S costs $15. Shall I continue to order?"
+        }
+      } ]
+    },
+    "expectations": {
+      "expectedSessionParameters": [ {
+        "key": "price",
+        "value": 15
+      }, {
+        "key": "shirtsize",
+        "value": "S"
+      }, {
+        "key": "merch",
+        "value": "T-shirt"
+      }, {
+        "key": "artist",
+        "value": "The Goo Fighters"
+      } ]
+    }
+  }, {
+    "userInput": {
+      "isWebhookEnabled": true,
+      "input": {
+        "text": {
+          "text": "yes"
+        },
+        "languageCode": "en"
+      }
+    },
+    "virtualAgentOutput": {
+      "sessionParameters": {
+        "artist": "The Goo Fighters",
+        "merch": "T-shirt",
+        "price": 15,
+        "shirtsize": "S"
+      },
+      "triggeredIntent": {
+        "name": "redirect.product.of.artist"
+      },
+      "currentPage": {
+        "name": "Confirmation",
+        "flow": "Catalog"
+      },
+      "textResponses": [ {
+        "text": [ "We sell shirts, music or the tour movie." ]
+      }, {
+        "text": [ "Alright! T-shirt of The Goo Fighters, let's go!" ]
+      }, {
+        "text": [ "A T-shirt of The Goo Fighters size: S costs $15. Shall I continue to order?" ]
+      } ],
+      "currentFlow": {
+        "name": "Catalog"
+      },
+      "actions": [ {
+        "userUtterance": {
+          "text": "yes"
+        }
+      }, {
+        "agentUtterance": {
+          "text": "We sell shirts, music or the tour movie.\nAlright! T-shirt of The Goo Fighters, let's go!\nA T-shirt of The Goo Fighters size: S costs $15. Shall I continue to order?"
+        }
+      } ]
+    },
+    "expectations": {
+      "expectedSessionParameters": [ {
+        "key": "merch",
+        "value": "T-shirt"
+      }, {
+        "key": "price",
+        "value": 15
+      }, {
+        "key": "artist",
+        "value": "The Goo Fighters"
+      }, {
+        "key": "shirtsize",
+        "value": "S"
+      } ]
+    }
+  }, {
+    "userInput": {
+      "isWebhookEnabled": true,
+      "input": {
+        "text": {
+          "text": "yes"
+        },
+        "languageCode": "en"
+      }
+    },
+    "virtualAgentOutput": {
+      "sessionParameters": {
+        "artist": "The Goo Fighters",
+        "merch": "T-shirt",
+        "price": 15,
+        "shirtsize": "S"
+      },
+      "triggeredIntent": {
+        "name": "redirect.product.of.artist"
+      },
+      "currentPage": {
+        "name": "Confirmation",
+        "flow": "Catalog"
+      },
+      "textResponses": [ {
+        "text": [ "We sell shirts, music or the tour movie." ]
+      }, {
+        "text": [ "Alright! T-shirt of The Goo Fighters, let's go!" ]
+      }, {
+        "text": [ "A T-shirt of The Goo Fighters size: S costs $15. Shall I continue to order?" ]
+      } ],
+      "currentFlow": {
+        "name": "Catalog"
+      },
+      "actions": [ {
+        "userUtterance": {
+          "text": "yes"
+        }
+      }, {
+        "agentUtterance": {
+          "text": "We sell shirts, music or the tour movie.\nAlright! T-shirt of The Goo Fighters, let's go!\nA T-shirt of The Goo Fighters size: S costs $15. Shall I continue to order?"
+        }
+      } ]
+    },
+    "expectations": {
+      "expectedSessionParameters": [ {
+        "key": "merch",
+        "value": "T-shirt"
+      }, {
+        "key": "shirtsize",
+        "value": "S"
+      }, {
+        "key": "price",
+        "value": 15
+      }, {
+        "key": "artist",
+        "value": "The Goo Fighters"
+      } ]
+    }
+  } ],
+  "creationTime": {
+    "seconds": 1726957997,
+    "nanos": 334465000
+  },
+  "testConfig": {
+    "trackingParameters": [ "artist", "merch", "price", "shirtsize" ],
+    "flow": "Default Start Flow",
+    "page": "Start Page"
+  },
+  "languageCode": "en"
+}

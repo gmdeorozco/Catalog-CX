@@ -1,0 +1,150 @@
+{
+  "name": "b816c3ed-ccc3-4bf9-892f-0ef71d224f9b",
+  "displayName": "Product",
+  "form": {
+    "parameters": [ {
+      "displayName": "artist",
+      "required": true,
+      "entityType": "@Artist",
+      "fillBehavior": {
+        "initialPromptFulfillment": {
+          "messages": [ {
+            "text": {
+              "text": [ "You didn't mention which artist you are interested in. You can ask me to buy the $session.params.merch of the artist you like or ask which artists we signed. How can I help?" ]
+            },
+            "languageCode": "en"
+          }, {
+            "payload": {
+              "richContent": [ [ {
+                "options": [ {
+                  "text": "Which artists?"
+                } ],
+                "type": "chips"
+              } ] ]
+            },
+            "languageCode": "en"
+          } ]
+        },
+        "repromptEventHandlers": [ {
+          "event": "sys.no-input-default",
+          "triggerFulfillment": {
+            "messages": [ {
+              "text": {
+                "text": [ "I couldn't understand what you just said. Ask me which artists are signed." ]
+              },
+              "languageCode": "en"
+            } ]
+          },
+          "name": "a483efbd-eded-4556-a66c-72f0ed02da3c"
+        }, {
+          "event": "sys.no-match-default",
+          "triggerFulfillment": {
+            "messages": [ {
+              "text": {
+                "text": [ "I missed that. Please ask me which artists are signed." ]
+              },
+              "languageCode": "en"
+            } ]
+          },
+          "name": "70bb81b8-c397-4ea9-b5fd-6f3a7174c1f7"
+        } ]
+      },
+      "redact": true
+    }, {
+      "displayName": "merch",
+      "required": true,
+      "entityType": "@Merch",
+      "fillBehavior": {
+        "initialPromptFulfillment": {
+        
+        },
+        "repromptEventHandlers": [ {
+          "event": "sys.no-input-default",
+          "triggerFulfillment": {
+            "messages": [ {
+              "text": {
+                "text": [ "I couldn't understand what you just said. Which merchandise item do you want?" ]
+              },
+              "languageCode": "en"
+            } ]
+          },
+          "name": "806731e2-1da4-4437-af48-929c2204c442"
+        }, {
+          "event": "sys.no-match-default",
+          "triggerFulfillment": {
+            "messages": [ {
+              "text": {
+                "text": [ "I missed that. Which merchandise item do you want?" ]
+              },
+              "languageCode": "en"
+            } ]
+          },
+          "name": "bbd7677b-b82d-4b6f-bb5f-d86862f9fe92"
+        } ]
+      },
+      "redact": true
+    } ]
+  },
+  "transitionRoutes": [ {
+    "condition": "$session.params.artist != null AND $session.params.merch = \"Tour Movie\"",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "price",
+        "value": 25
+      } ]
+    },
+    "targetPage": "Confirmation",
+    "name": "fa417e65-0dbf-4c30-bb04-3f0fd3c87d28"
+  }, {
+    "condition": "$session.params.artist != null AND $session.params.merch = \"Longsleeve\" AND $session.params.shirtsize != null",
+    "triggerFulfillment": {
+    
+    },
+    "targetPage": "Confirmation",
+    "name": "6accf3e9-79e5-479a-bf43-6f453e4fd94e"
+  }, {
+    "condition": "$session.params.artist != null OR $session.params.merch = \"CD\" OR $session.params.album != null",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "price",
+        "value": 15
+      } ]
+    },
+    "targetPage": "Confirmation",
+    "name": "ed8faff8-972d-444f-b3e0-ebb9260b95cd"
+  }, {
+    "condition": "$session.params.artist != null OR $session.params.merch = \"Digital Album\" OR $session.params.album != null",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "price",
+        "value": 10
+      } ]
+    },
+    "targetPage": "Confirmation",
+    "name": "bcac0fba-5bb0-4656-a362-b7949c417be9"
+  }, {
+    "condition": "$session.params.artist != null AND ($session.params.merch = \"CD\" OR $session.params.merch = \"Digital Album\") AND $session.params.album = null",
+    "triggerFulfillment": {
+      "messages": [ {
+        "text": {
+          "text": [ "I would also need to know which album you would like to buy!" ]
+        },
+        "languageCode": "en"
+      } ]
+    },
+    "targetPage": "Music",
+    "name": "6ed2ac69-dfd3-47bf-8685-6f41d49b98ed"
+  }, {
+    "condition": "$session.params.artist != null AND ($session.params.merch = \"T-shirt\" OR $session.params.merch = \"Longsleeve\") AND $session.params.shirtsize = null",
+    "triggerFulfillment": {
+      "messages": [ {
+        "text": {
+          "text": [ "I would also need to know which shirt size you need!" ]
+        },
+        "languageCode": "en"
+      } ]
+    },
+    "targetPage": "Shirt Size",
+    "name": "4b630edd-5054-4558-855d-a7deb701f72c"
+  } ]
+}

@@ -1,0 +1,10 @@
+{
+  "name": "07522023-dea9-4c80-ab33-28f7b7b89d64",
+  "displayName": "redirect.product.of.artist",
+  "parameters": [ {
+    "id": "artist",
+    "entityType": "@Artist"
+  } ],
+  "priority": 500000,
+  "numTrainingPhrases": 12
+}

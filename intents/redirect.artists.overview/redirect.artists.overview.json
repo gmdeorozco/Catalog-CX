@@ -1,0 +1,7 @@
+{
+  "name": "4ab81180-3dfc-4569-9128-7f27b3dfb781",
+  "displayName": "redirect.artists.overview",
+  "priority": 500000,
+  "description": "Artists overview: The bands supported by the label",
+  "numTrainingPhrases": 13
+}
